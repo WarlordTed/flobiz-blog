@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= blog.title
+    p Written by #{author}
+    hr
+    h5= blog.description
+    p= blog.body
+    br
+    if user
+        if user.id == blog.author
+            a.waves-effect.waves-light.btn-small(href="/blog/edit/" + blog._id) Edit
+            a.waves-effect.waves-light.btn-small.del(href="#" data-id=blog._id) Delete

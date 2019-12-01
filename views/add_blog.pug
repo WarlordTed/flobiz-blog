@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1 #{title}
+    .row
+        form.col.s12(method="POST",actions='/blog/add')
+            .row
+                .input-field.col.s12
+                    label Title
+                    input.validate(type='text', name='title' required)
+            .row
+                .input-field.col.s12
+                    label Description
+                    input.validate(type='text', name='description' required)
+            .row
+                .input-field.col.s12
+                    label Body
+                    textarea.materialize-textarea(name='body' required)
+            button.btn.waves-effect.waves-light(type='submit') Submit

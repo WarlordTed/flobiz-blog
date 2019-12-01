@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    h1 #{title}
+    .row
+        form.col.s12(method="POST",actions='/user/register')
+            .row
+                .input-field.col.s6
+                    label Name
+                    input.validate(type='text', name='name' required)
+                .input-field.col.s6
+                    label UserName
+                    input.validate(type='text', name='username' required)
+            .row
+                .input-field.col.s12
+                    label Email
+                    input.validate(type='email', name='email' required)
+            .row
+                .input-field.col.s12
+                    label Gender
+                    input.validate(type='text', name='gender' required)
+            .row
+                .input-field.col.s12
+                    label Age
+                    input.validate(type='number', name='age' required)
+            .row
+                .input-field.col.s12
+                    label Password
+                    input.validate(type='password', name='password' required)
+            .row
+                .input-field.col.s12
+                    label Confirm Password
+                    input.validate(type='password', name='confirm' required)
+
+            button.btn.waves-effect.waves-light(type='submit') Register

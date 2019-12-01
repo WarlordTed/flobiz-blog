@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1 #{title}
+    .row
+        form.col.s12(method="POST",actions='/blog/edit/'+ blog._id)
+            .row
+                .input-field.col.s6
+                    label Title
+                    input.validate(type='text', name='title' value=blog.title)
+                .input-field.col.s6
+                    label Author
+                    input.validate(type='text', name='author' value=blog.author)
+            .row
+                .input-field.col.s12
+                    label Description
+                    input.validate(type='text', name='description' value=blog.description)
+            .row
+                .input-field.col.s12
+                    label Body
+                    textarea.materialize-textarea(name='body')= blog.body
+            button.btn.waves-effect.waves-light(type='submit') Submit

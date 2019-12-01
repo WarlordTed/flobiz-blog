@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 #{title}
+    .row
+        form.col.s12(method="POST",actions='/user/login')
+            .row
+                .input-field.col.s12
+                    label UserName
+                    input.validate(type='text', name='username' required)
+            .row
+                .input-field.col.s12
+                    label Password
+                    input.validate(type='password', name='password' required)
+
+            button.btn.waves-effect.waves-light(type='submit') Login
