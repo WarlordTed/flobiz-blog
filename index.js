@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -85,6 +86,6 @@ app.use('/blog', blogRoutes);
 app.use('/user', userRoutes);
 
 //Server
-app.listen(3000,function(){
-    console.log('Server has started at port 3000.');
+app.listen(process.env.PORT,function(){
+    console.log(`Server has started at port ${process.env.PORT}.`);
 });
