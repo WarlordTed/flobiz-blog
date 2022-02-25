@@ -1,0 +1,32 @@
+version: "3"
+services:
+  mongo-app:
+    image: mongo:latest
+    ports: 
+      - "2717:27017"
+    networks:
+      - flobiz-app
+    volumes:
+      - mongo-data:/data/db
+
+  main-app:
+    image: flobiz:latest
+    stdin_open: true
+    ports: 
+      - "5000:3000"
+    environment:
+      DB: mongodb://mongo-app/blogdb
+      SSK: flobiz
+      PORT: 3000
+    networks:
+      - flobiz-app
+    depends_on:
+      - mongo-app
+  
+networks:
+  flobiz-app:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
